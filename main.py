@@ -12,7 +12,7 @@ async def on_ready():
     print(f'Logged in as {bot.user.name}')
 
 
-@bot.event
+@bot.eventb
 async def on_message(message):
     file = open('data.txt', 'a')
     msg = message.content.lower()
@@ -33,5 +33,18 @@ async def on_message(message):
 
         except:
             await message.channel.send('ОШИБКА')
+
+    elif config.OVERLAY_PHOTO[0] in msg:
+        await message.channel.send('Проверка...')
+        try:
+            url = msg[27:len(msg) + 1:1]
+            photo.run(url)
+            await message.channel.send('Обработка...')
+            change_img.overlay_photo(config.PNAME)
+            await message.channel.send(file=discord.File(config.PNAME))
+
+        except:
+            await message.channel.send('ОШИБКА')
+
 
 bot.run(config.TOKEN)                    # Запускаем бота с вашим токеном
