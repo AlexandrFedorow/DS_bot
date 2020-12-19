@@ -2,6 +2,7 @@ from PIL import Image, ImageDraw
 
 import cv2
 
+
 """Тут происходят все изменения над пикчами"""
 def chenge1(name):               #для мелких фоток.
     image = Image.open(name)     #Открываем изображение.
@@ -23,6 +24,7 @@ def chenge1(name):               #для мелких фоток.
             draw.point((i, j), (a, b, c))
     image.save(name, "JPEG")
     del draw
+
 
 def overlay_photo(name):
     image_path = name
