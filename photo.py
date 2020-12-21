@@ -24,5 +24,5 @@ def get_name(url):
 
 def run(name):
     save_data(get_name(name), get_file(name))
-    jpg_convert.convert()
+    #jpg_convert.convert()
 
