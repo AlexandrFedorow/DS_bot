@@ -12,8 +12,8 @@ gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 faces = face_cascade.detectMultiScale(
     gray,
-    scaleFactor= 1.1,
-    minNeighbors= 5,
+    scaleFactor=1.1,
+    minNeighbors=5,
     minSize=(10, 10)
 )
 
@@ -22,10 +22,9 @@ print(faces_detected)
 # Рисуем квадраты вокруг лиц
 
 for (x, y, w, h) in faces:
-    cv2.rectangle(image, (x, y), (x+w, y+h), (255, 255, 0), 2)
+    #cv2.rectangle(image, (x, y), (x+w, y+h), (255, 255, 0), 2)
     watermark = watermark.resize((w, h), Image.ANTIALIAS)
     im.paste(watermark, (x, y), watermark)
-
 
 im.show()
 
